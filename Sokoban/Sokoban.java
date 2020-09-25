@@ -1,3 +1,5 @@
+package Sokoban;
+
 import java.io.*;
 
 public class Sokoban {
@@ -137,8 +139,6 @@ class Game {
         }
       }
     }
-
-    System.out.println(positions.DeathBlock[1][0]);
 
     String renderedBoardBegining = render(gameBoard);
 
