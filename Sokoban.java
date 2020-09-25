@@ -126,9 +126,19 @@ class Game {
         } else if (gameBoard[i][j] == 4) {
           positions.TargetPos[0] = i;
           positions.TargetPos[1] = j;
+        } else if (gameBoard[i][j] == 5) {
+          if (positions.DeathBlock[0][0] == 0 && positions.DeathBlock[0][1] == 0) {
+            positions.DeathBlock[0][0] = i;
+            positions.DeathBlock[0][1] = j;
+          } else {
+            positions.DeathBlock[1][0] = i;
+            positions.DeathBlock[1][1] = j;
+          }
         }
       }
     }
+
+    System.out.println(positions.DeathBlock[1][0]);
 
     String renderedBoardBegining = render(gameBoard);
 
@@ -146,8 +156,13 @@ class Game {
       if (positions.BlockPos[0] == positions.TargetPos[0] && positions.BlockPos[1] == positions.TargetPos[1]) {
         player.isAlive = false;
         System.out.println("You win!");
-      } else if (gameBoard[player.position[0]][player.position[1]] == 5) {
-        System.out.println("You loose!");
+      } else {
+        for (int[] position : positions.DeathBlock) {
+          if (player.position[0] == position[0] && player.position[1] == position[1]) {
+            System.out.println("You loose!");
+            player.isAlive = false;
+          }
+        }
       }
     }
   }
@@ -215,6 +230,7 @@ class Player {
 class Positions {
   int[] BlockPos = { 0, 0 };
   int[] TargetPos = { 0, 0 };
+  int[][] DeathBlock = { { 0, 0 }, { 0, 0 } };
 }
 
 class GameHelper {
