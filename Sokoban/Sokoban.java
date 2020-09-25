@@ -13,7 +13,7 @@ public class Sokoban {
     try {
       game.start(player);
     } catch (Exception e) {
-      // TODO: handle exception
+      
     }
   }
 }
