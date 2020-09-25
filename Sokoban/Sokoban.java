@@ -1,6 +1,8 @@
 package Sokoban;
 
 import java.io.*;
+import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
 
 public class Sokoban {
   public static void main(String[] args) {
@@ -8,7 +10,11 @@ public class Sokoban {
 
     Player player = new Player();
 
-    game.start(player);
+    try {
+      game.start(player);
+    } catch (Exception e) {
+      // TODO: handle exception
+    }
   }
 }
 
@@ -95,13 +101,13 @@ class Game {
         } else if (col == 1) {
           rendered = rendered + " . ";
         } else if (col == 2) {
-          rendered = rendered + " P ";
+          rendered = rendered + " \u2603 ";
         } else if (col == 3) {
-          rendered = rendered + " O ";
+          rendered = rendered + " \u25A1 ";
         } else if (col == 4) {
-          rendered = rendered + " X ";
+          rendered = rendered + " \u25CE ";
         } else if (col == 5) {
-          rendered = rendered + " D ";
+          rendered = rendered + " \u2607 ";
         }
       }
       rendered = rendered + "\n";
@@ -110,7 +116,7 @@ class Game {
     return rendered;
   }
 
-  public void start(Player player) {
+  public void start(Player player) throws UnsupportedEncodingException {
     setGameBoard(generateMap(7, 7));
 
     Positions positions = new Positions();
@@ -142,7 +148,8 @@ class Game {
 
     String renderedBoardBegining = render(gameBoard);
 
-    System.out.println(renderedBoardBegining);
+    PrintStream out = new PrintStream(System.out, true, "UTF-8");
+    out.println(renderedBoardBegining);
 
     while (player.isAlive) {
       String UserInput = helper.getUserInput("Type in: w, a, s, d or stop:");
@@ -151,7 +158,7 @@ class Game {
 
       String renderedBoard = render(gameBoard);
 
-      System.out.println(renderedBoard);
+      out.println(renderedBoard);
 
       if (positions.BlockPos[0] == positions.TargetPos[0] && positions.BlockPos[1] == positions.TargetPos[1]) {
         player.isAlive = false;

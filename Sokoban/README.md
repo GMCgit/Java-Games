@@ -6,14 +6,14 @@
 ## "." is background
   Does nothing!
 
-## "P" is you, the player!
+## "☃" is you, the player!
   Try moving it!
 
-## "O" is a block
+## "□" is a block
   You can mobe it by hitting it
 
-## "X" is a target
+## "◎" is a target
   You need to push the block there
 
-## "D" is a death block
+## "☇" is a death block
   Do not touch them (Work in progress)
