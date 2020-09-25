@@ -88,6 +88,8 @@ class Game {
           rendered = rendered + " O ";
         } else if (col == 4) {
           rendered = rendered + " X ";
+        } else if (col == 5) {
+          rendered = rendered + " D ";
         }
       }
       rendered = rendered + "\n";
