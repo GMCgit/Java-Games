@@ -16,4 +16,4 @@
   You need to push the block there
 
 ## "D" is a death block
-  It's a work in progress
+  Do not touch them (Work in progress)
