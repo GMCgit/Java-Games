@@ -70,11 +70,21 @@ class Game {
       }
     }
 
+    for (int i = 0; i < 3; i++) {
+      int PosRow = (int) (Math.random() * ((cols - 1) - 1) + 1);
+      int PosCol = (int) (Math.random() * ((rows - 1) - 1) + 1);
+
+      if (Map[PosRow][PosCol] == 1) {
+        Map[PosRow][PosCol] = 5;
+        i++;
+      }
+    }
+
     return Map;
   }
 
   public String render(int[][] board) {
-    String rendered = "";
+    String rendered = "\n";
 
     for (int[] row : board) {
       for (int col : row) {
