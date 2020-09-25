@@ -136,6 +136,8 @@ class Game {
       if (positions.BlockPos[0] == positions.TargetPos[0] && positions.BlockPos[1] == positions.TargetPos[1]) {
         player.isAlive = false;
         System.out.println("You win!");
+      } else if (gameBoard[player.position[0]][player.position[1]] == 5) {
+        System.out.println("You loose!");
       }
     }
   }
