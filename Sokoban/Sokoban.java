@@ -90,7 +90,7 @@ class Game {
     return Map;
   }
 
-  public String render(int[][] board) {
+  public String render(int[][] board) throws UnsupportedEncodingException {
     String rendered = "\n";
 
     for (int[] row : board) {
