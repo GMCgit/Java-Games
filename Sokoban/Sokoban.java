@@ -4,7 +4,7 @@ import java.io.*;
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
 
-public class Sokoban {
+class Start {
   public static void main(String[] args) {
     Game game = new Game();
 
